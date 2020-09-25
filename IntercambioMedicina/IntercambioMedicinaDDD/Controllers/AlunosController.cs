@@ -101,6 +101,7 @@ namespace IntercambioMedicinaDDD.Controllers
             _alunoApp.Remove(aluno);
 
              return RedirectToAction("Index");
+            //return RedirectToAction("Index");
         }
             
     }
