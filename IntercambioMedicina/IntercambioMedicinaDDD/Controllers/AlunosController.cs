@@ -2,6 +2,7 @@
 using IntercambioMedicina.Application.Interface;
 using IntercambioMedicina.Domain.Entities;
 using IntercambioMedicinaDDD.ViewModels;
+using IntercambioMedicinaDDD.Infra.Data.Repositories;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -100,9 +101,12 @@ namespace IntercambioMedicinaDDD.Controllers
             var aluno = _alunoApp.GetById(id);
             _alunoApp.Remove(aluno);
 
-             return RedirectToAction("Index");
-            //return RedirectToAction("Index");
+            return RedirectToAction("Index");
+
         }
-            
+
     }
-}
+ }
+
+
+

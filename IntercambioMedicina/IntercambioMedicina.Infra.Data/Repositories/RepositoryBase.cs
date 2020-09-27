@@ -1,5 +1,4 @@
-﻿using IntercambioMedicina.Domain.Interfaces;
-using IntercambioMedicina.Domain.Interfaces.Repositories;
+﻿using IntercambioMedicina.Domain.Interfaces.Repositories;
 using IntercambioMedicina.Infra.Data.Contexto;
 using System;
 using System.Collections.Generic;

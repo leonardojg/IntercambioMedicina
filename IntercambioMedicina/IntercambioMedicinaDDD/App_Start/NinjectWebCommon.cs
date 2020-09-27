@@ -5,7 +5,13 @@ namespace IntercambioMedicinaDDD.App_Start
 {
     using System;
     using System.Web;
-
+    using IntercambioMedicina.Application;
+    using IntercambioMedicina.Application.Interface;
+    using IntercambioMedicina.Domain.Interfaces.Repositories;
+    using IntercambioMedicina.Domain.Interfaces.Services;
+    using IntercambioMedicina.Domain.Services;
+    using IntercambioMedicina.Infra.Data;
+    using IntercambioMedicina.Infra.Data.Repositories;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
@@ -56,11 +62,22 @@ namespace IntercambioMedicinaDDD.App_Start
         }
 
         /// <summary>
-        /// Load your modules or register your services here!
+        /// cargar aqui sus modulos y registros y sus servicios aqui
         /// </summary>
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind(typeof(IAppServiceBase<>)).To(typeof(AppServiceBase<>));
+            kernel.Bind<IAlunoAppService>().To<AlunoAppService>();
+            kernel.Bind<ICursoAppService>().To<CursoAppService>();
+
+            kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
+            kernel.Bind<IAlunoAppService>().To<AlunoAppService>();
+            kernel.Bind<ICursoAppService>().To<CursoAppService>();
+
+            kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
+            kernel.Bind<IAlunoAppService>().To<AlunoAppService>();
+            kernel.Bind<ICursoAppService>().To<CursoAppService>();
         }        
     }
 }
