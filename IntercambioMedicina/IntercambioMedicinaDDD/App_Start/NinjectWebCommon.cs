@@ -65,6 +65,7 @@ namespace IntercambioMedicinaDDD.App_Start
         /// cargar aqui sus modulos y registros y sus servicios aqui
         /// </summary>
         /// <param name="kernel">The kernel.</param>
+        /// 
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind(typeof(IAppServiceBase<>)).To(typeof(AppServiceBase<>));
@@ -72,12 +73,12 @@ namespace IntercambioMedicinaDDD.App_Start
             kernel.Bind<ICursoAppService>().To<CursoAppService>();
 
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
-            kernel.Bind<IAlunoAppService>().To<AlunoAppService>();
-            kernel.Bind<ICursoAppService>().To<CursoAppService>();
+            kernel.Bind<IAlunoService>().To<AlunoService>();
+            kernel.Bind<ICursoService>().To<CursoService>();
 
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
-            kernel.Bind<IAlunoAppService>().To<AlunoAppService>();
-            kernel.Bind<ICursoAppService>().To<CursoAppService>();
+            kernel.Bind<IAlunoRepository>().To<AlunoRepository>();
+            kernel.Bind<ICursoRepository>().To<CursoRepository>();
         }        
     }
 }
